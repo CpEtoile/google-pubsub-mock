@@ -112,7 +112,7 @@ module.exports = {
   }
 };
 
-function createMessageFrom(message, attributes, ack, nack, id) {
+function createMessageFrom(message, attributes, ack, nack, id, publishTime) {
   // TODO: implement something smarter
   const data = Buffer.from(message.toString()); //Works with string and buffer-alike types.
 
@@ -123,6 +123,7 @@ function createMessageFrom(message, attributes, ack, nack, id) {
     data,
     attributes: attributes || {},
     ack,
-    nack
+    nack,
+    publishTime
   };
 }
